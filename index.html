@@ -26,6 +26,11 @@
           right: 0px;
           z-index: 999; /* 確保在最上層 */
         }
+
+        .icheck-primary input[type="checkbox"] {
+          transform: scale(1.8);
+          margin-right: 5px;
+        }
     </style>
 </head>
 
@@ -50,16 +55,40 @@
           </div>
           <div class="d-flex justify-content-center flex-wrap mb-3">
             <div class="col-md-3 col-sm-3 col-12 mb-3">
-              <button type="button" class="btn btn-block btn-warning btn-lg" onclick="allButton()"><b>全部</b></button>
+              <button type="button" class="btn btn-block btn-warning btn-lg filter-btn" onclick="clickButton(this,1)"><b>全部</b></button>
             </div>
             <div class="col-md-3 col-sm-6 col-12 mb-3">
-              <button type="button" class="btn btn-block btn-warning btn-lg" onclick="boatButton()"><b style="white-space: nowrap;">戰艦、航空母艦</b></button>
+              <button type="button" class="btn btn-block btn-warning btn-lg filter-btn" onclick="clickButton(this,2)"><b style="white-space: nowrap;">戰艦、航空母艦</b></button>
             </div>
             <div class="col-md-3 col-sm-3 col-12">
-              <button type="button" class="btn btn-block btn-warning btn-lg" onclick="carButton()"><b>汽車</b></button>
+              <button type="button" class="btn btn-block btn-warning btn-lg filter-btn" onclick="clickButton(this,3)"><b>汽車</b></button>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+
+          <div class="d-flex justify-content-center flex-wrap mb-3">
+            <div class="col-md-3 col-sm-3 col-4">
+              <div class="icheck-primary d-inline ml-5">
+                <input type="checkbox" value="1" id="allCheck" class="checkbox" checked>
+                <label for="allCheck"></label>
+              </div>
+              <span class="text">全部</span>
+            </div>
+            <div class="col-md-3 col-sm-3 col-4">
+              <div class="icheck-primary d-inline ml-5">
+                <input type="checkbox" value="2" id="pictureCheck" class="checkbox">
+                <label for="pictureCheck"></label>
+              </div>
+              <span class="text">照片</span>
+            </div>
+            <div class="col-md-3 col-sm-3 col-4">
+              <div class="icheck-primary d-inline ml-5">
+                <input type="checkbox" value="3" id="videoCheck" class="checkbox">
+                <label for="videoCheck"></label>
+              </div>
+              <span class="text">影片</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship1.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -69,7 +98,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship2.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -79,7 +108,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship3.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -89,7 +118,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship4.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -99,7 +128,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship5.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -109,7 +138,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship6.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -119,7 +148,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship7.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -129,7 +158,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship8.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -139,7 +168,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship9.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -149,7 +178,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship10.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -159,7 +188,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship11.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -169,7 +198,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship12.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -179,7 +208,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship13.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -189,7 +218,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship14.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -199,7 +228,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship15.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -209,7 +238,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship16.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -219,7 +248,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship17.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -229,7 +258,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://media.githubusercontent.com/media/jimmytes/modelDemo/master/ship_res/ship18.jpg" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -239,7 +268,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship video">
             <div class="info-box d-flex flex-column align-items-center text-center p-3 bg-light rounded">
               <div style="position: relative; width: 100%; padding-top: 56.25%;">
                 <iframe 
@@ -255,7 +284,7 @@
               <h5 class="mt-3">1:350企業號</h5>
             </div>
           </div>       
-          <div class="col-md-6 col-sm-12 col-12 ship">
+          <div class="col-md-6 col-sm-12 col-12 ship video">
             <div class="info-box d-flex flex-column align-items-center text-center p-3 bg-light rounded">
               <div style="position: relative; width: 100%; padding-top: 56.25%;">
                 <iframe 
@@ -271,7 +300,7 @@
               <h5 class="mt-3">1:350企業號</h5>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car1.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -281,7 +310,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car2.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -291,7 +320,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car3.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -301,7 +330,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car4.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -311,7 +340,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car5.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -321,7 +350,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car6.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -331,7 +360,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car7.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -341,7 +370,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car8.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -351,7 +380,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car pic">
             <div class="info-box d-flex flex-column align-items-center text-center">
               <img src="https://github.com/jimmytes/modelDemo/blob/master/car_res/car9.jpg?raw=true" style="width: 100%; height: auto;">
               <div class="info-box-content mt-2" style="white-space: normal; overflow: visible; text-overflow: unset;">
@@ -361,7 +390,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car video">
             <div class="info-box d-flex flex-column align-items-center text-center p-3 bg-light rounded">
               <div style="position: relative; width: 100%; padding-top: 56.25%;">
                 <iframe 
@@ -377,7 +406,7 @@
               <h5 class="mt-3">1:24現代 Porter</h5>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car video">
             <div class="info-box d-flex flex-column align-items-center text-center p-3 bg-light rounded">
               <div style="position: relative; width: 100%; padding-top: 56.25%;">
                 <iframe 
@@ -393,7 +422,7 @@
               <h5 class="mt-3">1:24 GTR</h5>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12 col-12 car">
+          <div class="col-md-6 col-sm-12 col-12 car video">
             <div class="info-box d-flex flex-column align-items-center text-center p-3 bg-light rounded">
               <div style="position: relative; width: 100%; padding-top: 56.25%;">
                 <iframe 
@@ -460,6 +489,8 @@
     </div>
 
     <script>
+      var self = this;
+      var nowSelectType = "all"
       function scrollToFooter() {
         window.scrollTo({
           top: document.body.scrollHeight,
@@ -474,20 +505,99 @@
         });
       }
 
-      function allButton() {
-        $('.ship').show();
-        $('.car').show();
+      function clickButton(clickedBtn,type) {
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+        clickedBtn.classList.add('active');
+        
+        if(type == 1){
+          nowSelectType = "all"
+        }
+        else if(type == 2){
+          nowSelectType = "ship"
+        }
+        else if(type == 3){
+          nowSelectType = "car"
+        }
+        self.checkBoxStatus()
       }
 
-      function boatButton() {
-        $('.ship').show();
-        $('.car').hide();
+      const checkboxes = document.querySelectorAll('.checkbox');
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('click', function (e) {
+          if (!this.checked) {
+            e.preventDefault();
+            return;
+          }
+          checkboxes.forEach(cb => cb.checked = false);
+          this.checked = true;
+          self.checkBoxStatus()
+        });
+      });
+
+      function checkBoxStatus(){
+        if (document.getElementById("allCheck").checked){
+          if(nowSelectType == "all"){//種類全部、圖片影片不限
+            $('.pic').show();
+            $('.video').show();
+          }
+          else if(nowSelectType == "ship"){//種類船、圖片影片不限
+            $('.ship.pic').show();
+            $('.ship.video').show();
+            $('.car.pic').hide();
+            $('.car.video').hide();
+          }
+          else if(nowSelectType == "car"){//種類車、圖片影片不限
+            $('.ship.pic').hide();
+            $('.ship.video').hide();
+            $('.car.pic').show();
+            $('.car.video').show();
+          }
+        }
+        else if (document.getElementById("pictureCheck").checked){
+          if(nowSelectType == "all"){//種類全部、限圖片
+            $('.ship.pic').show();
+            $('.ship.video').hide();
+            $('.car.pic').show();
+            $('.car.video').hide();
+          }
+          else if(nowSelectType == "ship"){//種類船、限圖片
+            $('.ship.pic').show();
+            $('.ship.video').hide();
+            $('.car.pic').hide();
+            $('.car.video').hide();
+          }
+          else if(nowSelectType == "car"){//種類車、限圖片
+            $('.ship.pic').hide();
+            $('.ship.video').hide();
+            $('.car.pic').show();
+            $('.car.video').hide();
+          }
+        }
+        else if (document.getElementById("videoCheck").checked){
+          if(nowSelectType == "all"){//種類全部、限影片
+            $('.ship.pic').hide();
+            $('.ship.video').show();
+            $('.car.pic').hide();
+            $('.car.video').show();
+          }
+          else if(nowSelectType == "ship"){//種類船、限影片
+            $('.ship.pic').hide();
+            $('.ship.video').show();
+            $('.car.pic').hide();
+            $('.car.video').hide();
+          }
+          else if(nowSelectType == "car"){//種類車、限影片
+            $('.ship.pic').hide();
+            $('.ship.video').hide();
+            $('.car.pic').hide();
+            $('.car.video').show();
+          }
+        }
       }
 
-      function carButton() {
-        $('.ship').hide();
-        $('.car').show();
-      }
     </script>
     
 </body>
